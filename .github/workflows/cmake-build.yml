@@ -1,11 +1,7 @@
 name: cmake-build
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
-
+  workflow_dispatch: 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,4 +24,4 @@ jobs:
         run: cmake --build --preset github-ci --parallel
 
       - name: Test
-        run: ctest --preset github-ci
+        run: ctest --preset github-ci -V
